@@ -1,0 +1,24 @@
+<div class="abrir-modal animacion fadeIn">
+    <div class="modal" style="display: block;" tabindex="-1">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Productos</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                        (click)="closeCart()"></button>
+                </div>
+                <div class="modal-body">
+                    @if (items.length > 0) {
+                    <cart [items]="items" (idProductEventEmitter)="onDeleteCart($event)" />
+                    } @else {
+                    <div class="alert alert-warning">Ningun producto añadido por el momento</div>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        (click)="closeCart()">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
