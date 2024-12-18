@@ -1,34 +1,49 @@
-<table class="table table-hover table-striped">
-    <thead>
-        <tr>
-            <th>Producto</th>
-            <th>Precio</th>
-            <th>Cantidad</th>
-            <th>Total</th>
-            <th>Eliminar</th>
-        </tr>
-    </thead>
-    <tbody>
+<div class="card">
+    <div class="card-content">
+        <div class="card-header">
+            <h5 class="card-title">Carro de Compras</h5>
 
-        @for (item of items; track $index) {
-            <tr>
-                <td>{{item.product.name}}</td>
-                <td>{{item.product.price}}</td>
-                <td>{{item.quantity}}</td>
-                <td>{{item.product.price * item.quantity}}</td>
-                <td>
-                    <button class="btn btn-danger btn-sm"
-                     (click)="onDeleteCart(item.product.id)">
-                        Eliminar
-                    </button>
-                </td>
-            </tr>
-        }
-    </tbody>
-    <tfoot>
-        <tr>
-            <td colspan="4" class="text-end fw-bold">Total</td>
-            <td colspan="1" class="text-start fw-bold">{{total}} €</td>
-        </tr>
-    </tfoot>
-</table>
+        </div>
+        <div class="card-body">
+
+            @if (items.length > 0) {
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Total</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @for (item of items; track $index) {
+                    <tr>
+                        <td>{{item.product.name}}</td>
+                        <td>{{item.product.price}} €</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.product.price * item.quantity}} €</td>
+                        <td>
+                            <button class="btn btn-danger btn-sm" (click)="onDeleteCart(item.product.id)">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="4" class="text-end fw-bold">Total</td>
+                        <td colspan="1" class="text-start fw-bold">{{total}} €</td>
+                    </tr>
+                </tfoot>
+            </table>
+            } @else {
+            <div class="alert alert-warning">El carro de compras esta vacio</div>
+            }
+        </div>
+
+    </div>
+</div>

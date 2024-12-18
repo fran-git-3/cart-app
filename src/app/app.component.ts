@@ -5,7 +5,7 @@ import { CartAppComponent } from './components/cart-app.component';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CartAppComponent],
+  imports: [ CartAppComponent],
   templateUrl: './app.component.html'
 })
 export class AppComponent {
